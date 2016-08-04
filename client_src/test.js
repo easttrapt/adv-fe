@@ -33,11 +33,4 @@ $( document ).ready( function () {
     
     $('.posts-json').html(context);
     */
-
-    /*---------part three--------*/
-
-    Handlebars.registerPartial('post-description', function(posts) {
-        json = JSON.stringify(Data.getPosts(),"",4);
-        return new Handlebars.SafeString('<pre>' + Handlebars.Utils.escapeExpression(json) + '</pre>');
-    });
 });
