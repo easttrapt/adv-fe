@@ -23,8 +23,8 @@ $( document ).ready( function () {
     });
 
     
-    var descriptionsPost = $('#table-template').html();
-    var tableTemplate = Handlebars.compile( descriptionsPost );
+    var descriptionsPost = $('#table-template').html();               --------------jok
+    var tableTemplate = Handlebars.compile( descriptionsPost );       --------------jok
     
     var table = tableTemplate({
         test: 'test'
@@ -33,4 +33,31 @@ $( document ).ready( function () {
     
     $('.posts-json').html(context);
     */
+
+    Handlebars.registerHelper('table', function ( posts, options ){
+        //для каждого элемента поста возвращает его описание
+        var descriptionTr = posts.map(function(elem, index) {
+            return options.fn({
+                description: elem.description
+            });
+        }).join('');
+        //создаю таблицу с результатом
+        return '<table class="descriptions-table">' + descriptionTr + '</table>';
+    });
+
+
+    //register description
+    Handlebars.registerHelper('description', function() {
+        return new Handlebars.SafeString('<tr><td>' + this.description + '</td></tr>');
+    });
+
+
+    var descriptionsPost = $('#table-template').html();
+    var tableTemplate = Handlebars.compile( descriptionsPost );
+
+    var table = tableTemplate({
+        posts: posts
+    });
+
+    $('.posts-table').html(table);
 });
