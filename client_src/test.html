@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test-handlebars</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<h1>handlebars helpers</h1>
+	
+	<h2>Print obj JSON</h2>
+	<div class="posts-json">
+		<script id="template" type="text/x-handlebars-template">
+			{{json posts}}
+		</script>
+	</div>
+
+	<h2>Print Descriptions</h2>
+	<div class="posts-table">
+		<script id="table-template" type="text/x-handlebars-template">
+			<table class="descriptions-table">
+				{{#table posts}}
+					<tr><td class='{{rowClass}}'>{{description}}</td></tr>
+				{{/table}}
+			</table>
+		</script>
+	</div>
+
+	<script src="libs/jquery/dist/jquery.js"></script>
+	<script src="libs/handlebars/handlebars.js"></script>
+	<script src="data.js"></script>
+	<script src="test.js"></script>
+</body>
+</html>
