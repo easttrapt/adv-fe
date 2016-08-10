@@ -20,7 +20,7 @@
 		<script id="table-template" type="text/x-handlebars-template">
 			<table class="descriptions-table">
 				{{#table posts}}
-					{{description}}
+					<tr><td class='{{rowClass}}'>{{description}}</td></tr>
 				{{/table}}
 			</table>
 		</script>

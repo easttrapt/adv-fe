@@ -48,9 +48,12 @@ $( document ).ready( function () {
 
 
     //register description
-    Handlebars.registerHelper('description', function(index) {
-        var descriptionClass = this.index % 2 ? 'descriptionOdd' : 'descriptionEven';
-        return new Handlebars.SafeString('<tr class=' + descriptionClass + '><td>' + this.description + '</td></tr>');
+    Handlebars.registerHelper('description', function() {
+        return this.description;
+    });
+
+    Handlebars.registerHelper('rowClass', function(index) {
+        return this.index % 2 ? 'descriptionOdd' : 'descriptionEven';
     });
 
 
