@@ -18,44 +18,15 @@ $( document ).ready( function () {
     $('.posts-json').html(html);
 
     /*---------part two--------*/
-    /*Handlebars.registerHelper('table', function ( text, options ){
-        return 'aaaa';
-    });
-
-    
-    var descriptionsPost = $('#table-template').html();               --------------jok
-    var tableTemplate = Handlebars.compile( descriptionsPost );       --------------jok
-    
-    var table = tableTemplate({
-        test: 'test'
-    });
-
-    
-    $('.posts-json').html(context);
-    */
 
     Handlebars.registerHelper('table', function ( posts, options ){
-        //для каждого элемента поста возвращает его описание
-        var descriptionTr = posts.map(function(elem, index) {
+        return posts.map(function(elem, index) {
             return options.fn({
                 description: elem.description,
-                index: index
+                rowClass: index % 2 ? 'descriptionOdd' : 'descriptionEven'
             });
         }).join('');
-        //создаю таблицу с результатом
-        return descriptionTr;
     });
-
-
-    //register description
-    Handlebars.registerHelper('description', function() {
-        return this.description;
-    });
-
-    Handlebars.registerHelper('rowClass', function(index) {
-        return this.index % 2 ? 'descriptionOdd' : 'descriptionEven';
-    });
-
 
     var descriptionsPost = $('#table-template').html();
     var tableTemplate = Handlebars.compile( descriptionsPost );
