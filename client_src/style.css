@@ -8,9 +8,9 @@
     color: #333;
     padding: 10px;
 }
-.descriptions-table tbody tr:nth-child(odd) {
+.descriptionOdd {
     background-color: #fff;
 }
-.descriptions-table tbody tr:nth-child(even) {
+.descriptionEven {
     background-color: #EEF7EE;
 }

@@ -38,17 +38,19 @@ $( document ).ready( function () {
         //для каждого элемента поста возвращает его описание
         var descriptionTr = posts.map(function(elem, index) {
             return options.fn({
-                description: elem.description
+                description: elem.description,
+                index: index
             });
         }).join('');
         //создаю таблицу с результатом
-        return '<table class="descriptions-table">' + descriptionTr + '</table>';
+        return descriptionTr;
     });
 
 
     //register description
-    Handlebars.registerHelper('description', function() {
-        return new Handlebars.SafeString('<tr><td>' + this.description + '</td></tr>');
+    Handlebars.registerHelper('description', function(index) {
+        var descriptionClass = this.index % 2 ? 'descriptionOdd' : 'descriptionEven';
+        return new Handlebars.SafeString('<tr class=' + descriptionClass + '><td>' + this.description + '</td></tr>');
     });
 
 

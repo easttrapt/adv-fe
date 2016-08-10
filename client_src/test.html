@@ -18,9 +18,11 @@
 	<h2>Print Descriptions</h2>
 	<div class="posts-table">
 		<script id="table-template" type="text/x-handlebars-template">
-			{{#table posts}}
-				{{description}}
-			{{/table}}
+			<table class="descriptions-table">
+				{{#table posts}}
+					{{description}}
+				{{/table}}
+			</table>
 		</script>
 	</div>
 
