@@ -1,0 +1,10 @@
+#lesson01
+lesson01/node_modules/
+lesson01/bower_components/
+lesson01/client_src/libs/
+
+#lesson03
+lesson03/node_modules/
+lesson03/bower_components/
+lesson03/libs/
+lesson03/server.js
