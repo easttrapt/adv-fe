@@ -132,7 +132,6 @@ gulp.task('jscs', function () {
 		.pipe(jscs.reporter())
 		.pipe(jscs.reporter('fail'))
 		.pipe(gulp.dest('js'));
-
 });
 
 gulp.task('jshint', function () {
