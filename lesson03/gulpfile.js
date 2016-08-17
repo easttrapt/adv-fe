@@ -127,15 +127,12 @@ gulp.task('htmlhint', function () {
 
 gulp.task('jscs', function () {
 	return gulp.src('js/*.js')
-		/* -- error: reporter is not a function. Works only without {fix: true}
 		.pipe(debug())
 		.pipe(jscs({fix: true}))
 		.pipe(jscs.reporter())
 		.pipe(jscs.reporter('fail'))
 		.pipe(gulp.dest('js'));
-		*/
-		.pipe(jscs())
-        //.pipe(jscs.reporter());
+
 });
 
 gulp.task('jshint', function () {
