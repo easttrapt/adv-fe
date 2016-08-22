@@ -8,3 +8,8 @@ lesson03/node_modules/
 lesson03/bower_components/
 lesson03/libs/
 lesson03/server.js
+
+#lesson04
+lesson04/node_modules/
+lesson04/bower_components/
+lesson04/app.js
