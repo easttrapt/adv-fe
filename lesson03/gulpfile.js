@@ -144,15 +144,3 @@ gulp.task('style', function(clb){
 	runSequence('csscomb', 'htmlhint','jshint', 'jscs');
 	clb();
 });
-
-
-
-
-// картинки: https://youtu.be/ObFglo6dbVg?t=1268
-// выполнить несколько задач по дефолту: https://youtu.be/ObFglo6dbVg?t=2407
-// преобразовать less в css: https://youtu.be/ObFglo6dbVg?t=2598
-// конкатенация файлов на примере less: https://youtu.be/ObFglo6dbVg?t=2825
-// watch: https://youtu.be/ObFglo6dbVg?t=3807
-// мимификация: https://youtu.be/ObFglo6dbVg?t=4230
-// миниматч, создание патерна для нескольких файлов: https://youtu.be/ObFglo6dbVg?t=1783
-// sourcemaps: https://youtu.be/ObFglo6dbVg?t=4273
