@@ -7,7 +7,7 @@ module.exports = function GodGiftForm(options) {
     var elem = $('<div></div>');
 
     var BASE_HATE = 50; // can be propogated from game
-    var resources = options.resources;
+    var resource = options.resource;
 
     var hate = new Hate(BASE_HATE);
 
@@ -36,7 +36,7 @@ module.exports = function GodGiftForm(options) {
     // subscribe on tuner resouces 
     // onChange -> set changes in reseouce
     //
-    resources.subscribe(function() {
+    resource.subscribe(function() {
         console.log('hate count changed');
         //почему нужно указывать что делать при изменении модели?
     });
@@ -48,17 +48,17 @@ module.exports = function GodGiftForm(options) {
     function render() {
         elem.html(App.templates['god-gift-form']({}));
 
-            elem.find('.god-gift-form__tunners').html(tunners.map(function(tunner) {
+/*            elem.find('.god-gift-form__tunners').html(tunners.map(function(tunner) {
                 return tunner.render().elem;
             }));
             elem.find('.god-gift-form__hate').html(godHateIndicator.render().elem);
 
         subscribeHandlers(elem);
-
+*/
         return this;
     }
 
-    function subscribeHandlers(elem) {
+/*    function subscribeHandlers(elem) {
         elem.find('.god-gift-form__send').click(function() {
             console.log(
                 'send gift [' + 
@@ -69,7 +69,7 @@ module.exports = function GodGiftForm(options) {
             );
         });
     }
-
+*/
     return {
         render: render,
         elem: elem

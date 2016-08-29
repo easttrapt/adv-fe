@@ -13,11 +13,12 @@ module.exports = function UserWealth(options) {
     var ctResources = options.resources;
 
     function render() {
-        elem.html(App.templates['user-wealth']({}));
+/*        elem.html(App.templates['user-wealth']({}));
             elem.find('.user-wealth__resources').html(ctResources.map(function(r) {
                 return r.render().elem;
             }));
         return this;
+*/
     }
 
     return {

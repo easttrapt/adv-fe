@@ -12,25 +12,31 @@ module.exports = function Game(options) {
         count: 10
     });
 
+    /*
+    var resourses = [];
+    resourses.push(new Resource({name: 'gold', count: 10}));
+    resourses.push(new Resource({name: 'copper', count: 20}));
+    */
+
     // create GodGiftForm 
     // {resources: resources}
     //
     //resources is not defined
     var giftForm = new GodGiftForm({
-        resources: userGoldResouce
+        resource: userGoldResouce
     });
     
     // create UserWealth 
     // {resources: resources}
     //
     var userWealth = new UserWealth({
-        resources: userGoldResouce
+        resource: userGoldResouce
     });
 
     function render() {
         elem.html(App.templates['game']({}));
             elem.find('.game__god-gift-form').html(giftForm.render().elem);
-            elem.find('.game__wealth').html(userWealth.render().elem);
+//            elem.find('.game__wealth').html(userWealth.render().elem);
         return this;
     }
 
