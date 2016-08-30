@@ -11,32 +11,35 @@ module.exports = function Game(options) {
         name: 'gold',
         count: 10
     });
+    var userCopperResouce = new Resource({
+        name: 'copper',
+        count: 13
+    });
 
-    /*
-    var resourses = [];
-    resourses.push(new Resource({name: 'gold', count: 10}));
-    resourses.push(new Resource({name: 'copper', count: 20}));
-    */
+    
+    var resources = [];
+    //этот массив передаем в юзер велс и год гифт форм
+    resources.push(userGoldResouce, userCopperResouce);
+    
 
     // create GodGiftForm 
     // {resources: resources}
     //
-    //resources is not defined
     var giftForm = new GodGiftForm({
-        resource: userGoldResouce
+        resources: resources
     });
     
     // create UserWealth 
     // {resources: resources}
     //
     var userWealth = new UserWealth({
-        resource: userGoldResouce
+        resources: resources
     });
 
     function render() {
         elem.html(App.templates['game']({}));
             elem.find('.game__god-gift-form').html(giftForm.render().elem);
-//            elem.find('.game__wealth').html(userWealth.render().elem);
+            elem.find('.game__wealth').html(userWealth.render().elem);
         return this;
     }
 
