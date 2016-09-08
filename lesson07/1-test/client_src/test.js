@@ -12,15 +12,7 @@ fetch(LUCKY_POST, {
 })
 .then(function(res) {
 	return res.json();
-})
-.then(function(myPost) {
-	//console.log('request succeeded', myPost);
-})
-.then(function(error) {
-	//console.log('request failed', error);
 });
-
-//В консоль выводится и саксес, и фейл - задать вопрос
 
 //1.2 Получить все посты и подсчитать сумму лайков всех постов
 fetch(BASE_POSTS).then(function(res) {
@@ -36,40 +28,27 @@ fetch(BASE_POSTS).then(function(res) {
 
 
 //1.3 Получить комментарии к посту 466 и вывести.
-var correctComments = [];
 
 fetch(LUCKY_POST).then(function(res) {
 	return res.json();
 })
 .then(function(post) {
-	return Promise.all(post.comments.map(function(p) {
-		return p;
+	return Promise.all(post.comments.map(function(comments) {
+		return comments;
 	}))
 })
 .then(function(comments){
-	return Promise.all(comments.map(function(u, i, arr) {
-		fetch(BASE_PATH + '/users/' + u.user)
+	console.log('comments', comments);
+	return Promise.all(comments.map(function(comment) {
+		fetch(BASE_PATH + '/users/' + comment.user)
 		.then(function(user) {
 			return user.json();
 		})
-		.then(function(p){
-			u.user = p.name;
-			correctComments.push(u);
-			console.log('u',u);
-			$('.content-comments').append(u.user + ': ' + u.text + '; ');
-			//Хотел вернуть массив, но не разобрался как. Поэтому сделал аппенд прямо тут
-			//return u;
+		.then(function(user){
+			comment.user = user.name;
+			console.log('u',comment);
+			$('.content-comments').append(comment.user + ': ' + comment.text + '; ');
 		})
 	}))
-	//return correctComments;
 })
-/*.then(function(correct){
-	console.log('correctComments::::',correct);
-	var correctCommentsString = '';
-	correct.forEach(function(el) {
-		console.log('el', el);
-		correctCommentsString += (el.user + ': ' + el.text + '; ');
-	});
-	console.log('correctCommentsString', correctCommentsString);
-})*/
 
